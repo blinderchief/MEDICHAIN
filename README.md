@@ -400,17 +400,6 @@ No! It works for **any condition** — cancer, diabetes, rare diseases, mental h
 
 ---
 
-### 🚀 Can this really be built in a hackathon?
-Yes! We focus on a **working core**:
-- 1–2 agent prototypes
-- Real AI matching (Gemini + MeTTa rules)
-- Simulated on-chain proof (Base testnet)
-- Beautiful, functional UI
-
-→ Enough to *wow judges* and prove it's real.
-
----
-
 ## 🤝 Contributing
 
 1. Fork the repository
