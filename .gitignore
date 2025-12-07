@@ -1,0 +1,147 @@
+# Node.js
+node_modules/
+.env
+.env.*
+dist/
+build/
+.next/
+.cache/
+coverage/
+artifacts/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+*.egg-info/
+.eggs/
+*.egg
+*.bak
+*.swp
+*.swo
+*.tmp
+*.log
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+*.sock
+
+# Hardhat
+cache/
+artifacts/
+
+# Alembic
+backend/migrations/versions/__pycache__/
+
+# Frontend build
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+
+# Smart contract build
+smart-contracts/artifacts/
+smart-contracts/cache/
+
+# Misc
+*.local
+*.secret
+*.pem
+*.key
+*.crt
+*.sublime-workspace
+*.sublime-project
+
+# Postman
+*.postman_collection.json
+
+# Jupyter
+*.ipynb_checkpoints/
+
+# System
+*.swp
+*.swo
+
+# Ignore test coverage
+coverage/
+
+# Ignore IDE settings
+.idea/
+
+# Ignore shell history
+*.history
+
+# Ignore batch/sh setup logs
+*.bat~
+*.sh~
+
+# Ignore compiled contracts
+contracts/artifacts/
+contracts/cache/
+
+# Ignore demo/test data
+*.demo
+*.test
+*.spec
+
+# Ignore local database
+*.db
+*.sqlite
+
+# Ignore log files
+*.log
+
+# Ignore Python virtual environments
+venv/
+.envrc
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore frontend test snapshots
+frontend/src/__tests__/__snapshots__/
+
+# Ignore backend test cache
+backend/.pytest_cache/
+
+# Ignore hardhat temp files
+smart-contracts/solidity-files-cache.json
+
+# Ignore frontend coverage
+frontend/coverage/
+
+# Ignore backend coverage
+backend/coverage/
+
+# Ignore contract coverage
+contracts/coverage/
+
+# Ignore scripts logs
+scripts/*.log
+
+# Ignore local .env files
+backend/.env
+frontend/.env
+smart-contracts/.env
+contracts/.env
+
+# Ignore docker-compose override
+*.override.yml
+prd.md
+TECH_STACK_RECOMMENDATIONS_2024_2025.md
+thinking.md
