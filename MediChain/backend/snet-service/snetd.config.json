@@ -1,0 +1,58 @@
+{
+    "_comment": "SingularityNET Daemon Configuration for MediChain Service",
+    "_docs": "https://dev.singularitynet.io/docs/products/DecentralizedAIPlatform/Daemon/",
+    
+    "daemon_end_point": "0.0.0.0:7000",
+    "ethereum_json_rpc_endpoint": "${SNET_ETH_RPC_ENDPOINT}",
+    "blockchain_network_selected": "sepolia",
+    
+    "ipfs_end_point": "https://ipfs.singularitynet.io:443",
+    
+    "organization_id": "medichain-health",
+    "service_id": "clinical-trial-matcher",
+    
+    "passthrough_enabled": true,
+    "passthrough_endpoint": "http://localhost:8000",
+    
+    "ssl_cert": "",
+    "ssl_key": "",
+    
+    "payment_channel_storage_type": "etcd",
+    "payment_channel_storage_client": {
+        "connection_timeout": 5,
+        "request_timeout": 3,
+        "endpoints": ["http://localhost:2379"]
+    },
+    
+    "log": {
+        "level": "info",
+        "timezone": "UTC",
+        "formatter": {
+            "type": "json"
+        },
+        "output": {
+            "type": "stdout"
+        }
+    },
+    
+    "metering_enabled": false,
+    "pvt_key_for_metering": "",
+    
+    "free_call_signer_address": "",
+    "free_calls_users": {},
+    
+    "authentication_addresses": [],
+    
+    "rate_limit_per_minute": 60,
+    
+    "burst_size": 10,
+    
+    "alerts_email": "alerts@medichain.io",
+    
+    "notification_svc_end_point": "",
+    "service_heartbeat_type": "http",
+    "heartbeat_svc_end_point": "http://localhost:8000/api/v1/health",
+    
+    "auto_ssl_domain": "",
+    "auto_ssl_cache_dir": ""
+}
