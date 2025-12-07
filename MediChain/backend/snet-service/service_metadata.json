@@ -1,0 +1,57 @@
+{
+    "version": 1,
+    "display_name": "MediChain Clinical Trial Matcher",
+    "encoding": "proto",
+    "service_type": "grpc",
+    "model_ipfs_hash": "",
+    "mpe_address": "0x7E0aF8988DF45B824b2E0e0A87c6196897744970",
+    "groups": [
+        {
+            "group_name": "default_group",
+            "group_id": "medichain_default_group_v1",
+            "payment_address": "0x...",
+            "pricing": [
+                {
+                    "price_model": "fixed_price",
+                    "price_in_cogs": 10,
+                    "default": true
+                }
+            ],
+            "endpoints": [
+                "https://api.medichain.io:7000"
+            ],
+            "daemon_addresses": [],
+            "free_calls": 20,
+            "free_call_signer_address": "0x..."
+        }
+    ],
+    "service_description": {
+        "url": "https://marketplace.singularitynet.io/servicedetails/org/medichain-health/service/clinical-trial-matcher",
+        "short_description": "AI-powered clinical trial matching using hybrid neuro-symbolic reasoning",
+        "description": "MediChain provides intelligent clinical trial matching for patients using a hybrid AI approach combining Google Gemini's NLP capabilities with MeTTa-style symbolic reasoning. The service analyzes patient profiles against trial eligibility criteria to find optimal matches with explainable reasoning.\n\nFeatures:\n- Semantic matching of conditions, biomarkers, and demographics\n- MeTTa-style symbolic reasoning for eligibility determination\n- FHIR-compatible patient data input\n- Explainable AI with detailed reasoning traces\n- Privacy-preserving with on-chain consent management\n\nUse Cases:\n- Patient self-matching to clinical trials\n- Healthcare provider trial recommendations\n- Pharmaceutical company patient recruitment\n- Research institutions seeking eligible participants"
+    },
+    "media": [
+        {
+            "order": 1,
+            "url": "https://medichain.io/assets/hero.png",
+            "file_type": "image",
+            "asset_type": "hero_image",
+            "alt_text": "MediChain Clinical Trial Matcher"
+        }
+    ],
+    "contributors": [
+        {
+            "name": "MediChain Team",
+            "email_id": "team@medichain.io"
+        }
+    ],
+    "tags": [
+        "healthcare",
+        "clinical-trials",
+        "ai-matching",
+        "medical-nlp",
+        "neuro-symbolic",
+        "metta",
+        "fhir"
+    ]
+}

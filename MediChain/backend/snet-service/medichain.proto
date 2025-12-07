@@ -1,0 +1,219 @@
+// MediChain Clinical Trial Matcher Service - SingularityNET Protocol Buffer Definition
+// 
+// This defines the gRPC interface for the MediChain AI service on SingularityNET marketplace.
+// The service provides intelligent clinical trial matching using hybrid neuro-symbolic AI.
+
+syntax = "proto3";
+
+package medichain;
+
+option go_package = "github.com/medichain/snet-service/medichain";
+option java_package = "io.medichain.snet";
+option java_outer_classname = "MediChainProto";
+
+// ============================================================================
+// Clinical Trial Matcher Service
+// ============================================================================
+
+service ClinicalTrialMatcher {
+    // Match a patient profile to eligible clinical trials
+    rpc MatchTrials(PatientMatchRequest) returns (TrialMatchResponse);
+    
+    // Check eligibility for a specific trial
+    rpc CheckEligibility(EligibilityCheckRequest) returns (EligibilityCheckResponse);
+    
+    // Extract medical entities from patient records
+    rpc ExtractMedicalEntities(TextAnalysisRequest) returns (MedicalEntitiesResponse);
+    
+    // Get AI-powered insights for a patient-trial match
+    rpc GetMatchInsights(MatchInsightsRequest) returns (MatchInsightsResponse);
+    
+    // Health check endpoint
+    rpc HealthCheck(Empty) returns (HealthResponse);
+}
+
+// ============================================================================
+// Common Types
+// ============================================================================
+
+message Empty {}
+
+message HealthResponse {
+    string status = 1;
+    string version = 2;
+    int64 uptime_seconds = 3;
+}
+
+// ============================================================================
+// Patient Matching
+// ============================================================================
+
+message PatientMatchRequest {
+    // Patient demographics
+    string age_range = 1;          // e.g., "45-55" or "65+"
+    string gender = 2;             // "male", "female", "other"
+    
+    // Medical information
+    repeated string conditions = 3; // List of medical conditions (ICD-10 or plain text)
+    repeated string medications = 4; // Current medications
+    repeated Biomarker biomarkers = 5; // Lab values and biomarkers
+    
+    // Optional: FHIR Bundle for comprehensive data
+    string fhir_bundle_json = 6;
+    
+    // Matching preferences
+    int32 max_results = 7;         // Max trials to return (default: 10)
+    float min_confidence = 8;      // Minimum match confidence (0-1, default: 0.5)
+    
+    // Geographic constraints
+    string location = 9;           // Patient location for distance filtering
+    int32 max_distance_miles = 10; // Maximum distance to trial site
+}
+
+message Biomarker {
+    string name = 1;               // e.g., "HER2", "BRCA1", "PDL1"
+    string value = 2;              // e.g., "positive", "2.5", "high"
+    string unit = 3;               // e.g., "ng/mL", "mm"
+}
+
+message TrialMatchResponse {
+    repeated TrialMatch matches = 1;
+    int32 total_trials_analyzed = 2;
+    float processing_time_ms = 3;
+    string reasoning_summary = 4;
+}
+
+message TrialMatch {
+    string trial_id = 1;           // NCT number or internal ID
+    string title = 2;
+    string sponsor = 3;
+    float match_score = 4;         // 0-100 confidence score
+    string confidence_level = 5;   // "high", "medium", "low"
+    
+    // Reasoning
+    repeated CriteriaMatch inclusion_matches = 6;
+    repeated CriteriaMatch exclusion_clears = 7;
+    string ai_explanation = 8;
+    string metta_reasoning = 9;    // MeTTa-style symbolic reasoning trace
+    
+    // Trial details
+    string phase = 10;
+    string status = 11;
+    repeated string conditions = 12;
+    repeated string sites = 13;
+}
+
+message CriteriaMatch {
+    string criterion = 1;          // The criteria text
+    bool passed = 2;
+    float confidence = 3;
+    string explanation = 4;
+}
+
+// ============================================================================
+// Eligibility Checking
+// ============================================================================
+
+message EligibilityCheckRequest {
+    PatientMatchRequest patient = 1;
+    string trial_id = 2;           // Specific trial to check
+    
+    // Optional: provide trial data directly
+    string trial_data_json = 3;
+}
+
+message EligibilityCheckResponse {
+    bool is_eligible = 1;
+    float confidence_score = 2;    // 0-100
+    string confidence_level = 3;   // "high", "medium", "low"
+    
+    // Detailed breakdown
+    repeated CriteriaMatch inclusion_results = 4;
+    repeated CriteriaMatch exclusion_results = 5;
+    
+    // AI reasoning
+    string explanation = 6;
+    string metta_reasoning = 7;
+    
+    // Recommendations
+    repeated string recommendations = 8;
+    repeated string missing_data = 9; // Data that would improve confidence
+}
+
+// ============================================================================
+// Medical Entity Extraction
+// ============================================================================
+
+message TextAnalysisRequest {
+    string text = 1;               // Medical text to analyze
+    repeated string entity_types = 2; // Types to extract: "condition", "medication", "biomarker", "procedure"
+    bool include_negations = 3;    // Include negated entities
+}
+
+message MedicalEntitiesResponse {
+    repeated MedicalEntity entities = 1;
+    float processing_time_ms = 2;
+}
+
+message MedicalEntity {
+    string text = 1;               // Original text span
+    string normalized_text = 2;    // Standardized form
+    string entity_type = 3;        // condition, medication, biomarker, procedure
+    float confidence = 4;          // 0-1 confidence
+    bool is_negated = 5;           // Whether this is negated (e.g., "no diabetes")
+    
+    // Position in text
+    int32 start_offset = 6;
+    int32 end_offset = 7;
+    
+    // Optional standardized codes
+    string icd10_code = 8;
+    string snomed_code = 9;
+    string rxnorm_code = 10;
+}
+
+// ============================================================================
+// Match Insights
+// ============================================================================
+
+message MatchInsightsRequest {
+    string patient_id = 1;
+    string trial_id = 2;
+    
+    // Include specific insight types
+    bool include_risks = 3;
+    bool include_benefits = 4;
+    bool include_alternatives = 5;
+    bool include_timeline = 6;
+}
+
+message MatchInsightsResponse {
+    // Risk/benefit analysis
+    repeated Insight risks = 1;
+    repeated Insight benefits = 2;
+    
+    // Alternative suggestions
+    repeated string alternative_trial_ids = 3;
+    
+    // Timeline insights
+    string estimated_duration = 4;
+    repeated TimelineEvent timeline = 5;
+    
+    // Patient-friendly summary
+    string summary = 6;
+    repeated string key_considerations = 7;
+}
+
+message Insight {
+    string title = 1;
+    string description = 2;
+    string severity = 3;           // "high", "medium", "low" (for risks)
+    float confidence = 4;
+}
+
+message TimelineEvent {
+    string phase = 1;
+    string description = 2;
+    string estimated_duration = 3;
+    int32 order = 4;
+}
