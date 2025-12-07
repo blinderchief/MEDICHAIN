@@ -336,6 +336,81 @@ snetd --config backend/snet-service/snetd.config.json
 
 Visit [medichain.io](https://medichain.io) for a live demo.
 
+## ❓ Frequently Asked Questions (FAQ)
+
+### What is MediChain?
+MediChain is a smart, privacy-first tool that helps patients find the *right clinical trials* — fast. It uses AI agents and blockchain to match you securely, without sharing your private health data.
+
+---
+
+### 🤖 How do AI "agents" help?
+Think of them as tiny, specialized AI helpers:
+- One agent *listens* to your health info (safely).
+- One *thinks* — using medical rules + smart AI — to find matching trials.
+- One *verifies* — records your consent on the blockchain so everything is fair and traceable.
+
+---
+
+### 🔒 Is my health data safe?
+**Yes — extremely.**
+- You log in securely (like Google or email).
+- Your raw medical records **never leave your device**.
+- Only a secure, anonymized "fingerprint" (hash) is used for matching.
+- Everything is encrypted — like a digital vault.
+
+---
+
+### ⛓️ What does "on the blockchain" mean?
+It means:
+- Every match and consent is recorded **publicly and permanently** (but anonymously).
+- No one can delete or fake it — like a tamper-proof diary.
+- Researchers pay fairly using **ASI tokens**, and you can even earn a small reward for participating.
+
+---
+
+### 🧬 Do I need genetic tests or fancy data?
+**No.** You can start with:
+- A doctor's note (PDF/photo)
+- Basic info (age, condition, location)
+- Optional: upload EHRs, lab reports, or genetic data if you have them.
+
+---
+
+### 🌍 Is this only for certain diseases?
+No! It works for **any condition** — cancer, diabetes, rare diseases, mental health — as long as there's an open trial.
+
+💡 *Bonus*: The system gives extra priority to underrepresented groups (e.g., women, minorities, rural patients) to make research fairer.
+
+---
+
+### 💰 How much does it cost?
+- **Free for patients.**
+- Researchers pay a small fee in **ASI tokens** (≈ $0.50) per high-quality match — paid only *after* a successful connection.
+
+---
+
+### 🏆 Why is this better than ClinicalTrials.gov or other sites?
+
+| Others | MediChain |
+|--------|-----------|
+| ❌ Keyword search only | ✅ AI + medical logic (like a doctor's reasoning) |
+| ❌ No privacy control | ✅ You own your data — full control |
+| ❌ No verification | ✅ Every step recorded on blockchain |
+| ❌ Static lists | ✅ Live, learning agent network |
+
+---
+
+### 🚀 Can this really be built in a hackathon?
+Yes! We focus on a **working core**:
+- 1–2 agent prototypes
+- Real AI matching (Gemini + MeTTa rules)
+- Simulated on-chain proof (Base testnet)
+- Beautiful, functional UI
+
+→ Enough to *wow judges* and prove it's real.
+
+---
+
 ## 🤝 Contributing
 
 1. Fork the repository
