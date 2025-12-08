@@ -1,32 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="512" height="512" role="img" aria-label="MediChain logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="MediChain logo">
   <defs>
-    <linearGradient id="g" x1="0" x2="1">
-      <stop offset="0%" stop-color="#06b6d4"/>
-      <stop offset="100%" stop-color="#2563eb"/>
+    <!-- Main gradient - teal to blue -->
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D9C0"/>
+      <stop offset="50%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Inner shadow -->
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset dx="0" dy="4" result="offsetBlur"/>
+      <feComposite in="SourceGraphic" in2="offsetBlur" operator="over"/>
+    </filter>
+    
+    <!-- Chain link gradient -->
+    <linearGradient id="chainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64748B"/>
+      <stop offset="50%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
     </linearGradient>
   </defs>
-  <rect width="120" height="120" rx="20" fill="#0f172a" />
-  <circle cx="60" cy="60" r="44" fill="url(#g)" opacity="0.95" />
-
-  <!-- Chain link (left) -->
-  <g transform="translate(40,58) rotate(-25)">
-    <rect x="-18" y="-8" width="36" height="16" rx="8" fill="#0b1220" opacity="0.18" />
-    <rect x="-14" y="-6" width="28" height="12" rx="6" fill="#fff" opacity="0.12"/>
+  
+  <!-- Background rounded square -->
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)"/>
+  
+  <!-- Outer glow ring -->
+  <circle cx="256" cy="256" r="195" fill="none" stroke="url(#mainGrad)" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Main circular background -->
+  <circle cx="256" cy="256" r="175" fill="url(#mainGrad)" filter="url(#glow)"/>
+  
+  <!-- Inner circle highlight -->
+  <circle cx="256" cy="230" r="140" fill="#ffffff" opacity="0.08"/>
+  
+  <!-- Blockchain chain links around the cross -->
+  <!-- Top-left chain link -->
+  <g transform="translate(168, 168) rotate(-45)">
+    <rect x="-28" y="-10" width="56" height="20" rx="10" fill="url(#chainGrad)" opacity="0.4"/>
+    <rect x="-22" y="-6" width="44" height="12" rx="6" fill="#0F172A" opacity="0.5"/>
   </g>
-
-  <!-- Chain link (right) -->
-  <g transform="translate(80,54) rotate(25)">
-    <rect x="-18" y="-8" width="36" height="16" rx="8" fill="#0b1220" opacity="0.18" />
-    <rect x="-14" y="-6" width="28" height="12" rx="6" fill="#fff" opacity="0.12"/>
+  
+  <!-- Top-right chain link -->
+  <g transform="translate(344, 168) rotate(45)">
+    <rect x="-28" y="-10" width="56" height="20" rx="10" fill="url(#chainGrad)" opacity="0.4"/>
+    <rect x="-22" y="-6" width="44" height="12" rx="6" fill="#0F172A" opacity="0.5"/>
   </g>
-
-  <!-- Medical cross -->
-  <g transform="translate(60,62)">
-    <rect x="-6" y="-16" width="12" height="32" rx="2" fill="#fff"/>
-    <rect x="-16" y="-6" width="32" height="12" rx="2" fill="#fff"/>
+  
+  <!-- Bottom-left chain link -->
+  <g transform="translate(168, 344) rotate(45)">
+    <rect x="-28" y="-10" width="56" height="20" rx="10" fill="url(#chainGrad)" opacity="0.4"/>
+    <rect x="-22" y="-6" width="44" height="12" rx="6" fill="#0F172A" opacity="0.5"/>
   </g>
-
-  <!-- subtle highlight -->
-  <circle cx="58" cy="46" r="28" fill="#ffffff" opacity="0.06" />
+  
+  <!-- Bottom-right chain link -->
+  <g transform="translate(344, 344) rotate(-45)">
+    <rect x="-28" y="-10" width="56" height="20" rx="10" fill="url(#chainGrad)" opacity="0.4"/>
+    <rect x="-22" y="-6" width="44" height="12" rx="6" fill="#0F172A" opacity="0.5"/>
+  </g>
+  
+  <!-- Medical cross with shadow -->
+  <g transform="translate(256, 256)">
+    <!-- Cross shadow -->
+    <rect x="-28" y="-75" width="56" height="150" rx="12" fill="#0F172A" opacity="0.2" transform="translate(4, 4)"/>
+    <rect x="-75" y="-28" width="150" height="56" rx="12" fill="#0F172A" opacity="0.2" transform="translate(4, 4)"/>
+    
+    <!-- Main cross -->
+    <rect x="-28" y="-75" width="56" height="150" rx="12" fill="#FFFFFF"/>
+    <rect x="-75" y="-28" width="150" height="56" rx="12" fill="#FFFFFF"/>
+    
+    <!-- Cross inner highlight -->
+    <rect x="-22" y="-69" width="44" height="138" rx="8" fill="#F8FAFC" opacity="0.5"/>
+    <rect x="-69" y="-22" width="138" height="44" rx="8" fill="#F8FAFC" opacity="0.5"/>
+  </g>
+  
+  <!-- Network nodes (AI representation) -->
+  <circle cx="140" cy="256" r="8" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="372" cy="256" r="8" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="256" cy="140" r="8" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="256" cy="372" r="8" fill="#FFFFFF" opacity="0.6"/>
+  
+  <!-- Connecting lines (network/AI mesh) -->
+  <line x1="148" y1="256" x2="181" y2="256" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
+  <line x1="331" y1="256" x2="364" y2="256" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
+  <line x1="256" y1="148" x2="256" y2="181" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
+  <line x1="256" y1="331" x2="256" y2="364" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Top highlight arc -->
+  <path d="M 130 220 Q 256 100 382 220" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.1"/>
 </svg>
