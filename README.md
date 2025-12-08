@@ -1,12 +1,18 @@
-# 🏥 MediChain
+<p align="center">
+  <img src="https://raw.githubusercontent.com/blinderchief/MEDICHAIN/main/assets/logo.svg" alt="MediChain Logo" width="180" height="180">
+</p>
 
-> **The right trial. The right patient. Verified, instantly — no middlemen.**
+<h1 align="center">🏥 MediChain</h1>
+
+<p align="center">
+  <strong>The right trial. The right patient. Verified, instantly — no middlemen.</strong>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/blinderchief/MEDICHAIN/main/assets/cover.svg" alt="MediChain Banner" width="100%">
+</p>
 
 MediChain is a decentralized clinical trial matching platform powered by an AI agent mesh on SingularityNET. It connects patients with life-saving clinical trials using privacy-preserving AI matching, with on-chain consent verification and ASI token rewards.
-
-![MediChain Logo](assets/logo.svg)
-
-![MediChain Banner](assets/cover.svg)
 
 ## 🌟 Key Features
 
