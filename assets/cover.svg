@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-label="MediChain cover banner">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0ea5a4"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" fill="url(#bg)" rx="16"/>
+
+  <!-- left logo group -->
+  <g transform="translate(80,180) scale(1.8)">
+    <circle cx="0" cy="0" r="26" fill="#0f172a" opacity="0.18"/>
+    <circle cx="0" cy="0" r="22" fill="#06b6d4"/>
+    <g transform="translate(-2,3)">
+      <rect x="-2.75" y="-8" width="5.5" height="16" rx="1.2" fill="#fff"/>
+      <rect x="-8" y="-2.75" width="16" height="5.5" rx="1.2" fill="#fff"/>
+    </g>
+  </g>
+
+  <!-- title text -->
+  <g transform="translate(220,205)">
+    <text x="0" y="0" font-family="Inter, Arial, sans-serif" font-size="56" fill="#ffffff" font-weight="700">MediChain</text>
+    <text x="0" y="40" font-family="Inter, Arial, sans-serif" font-size="18" fill="#eef2ff">Privacy-first clinical trial matching with on-chain consent</text>
+  </g>
+
+</svg>
